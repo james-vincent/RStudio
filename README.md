@@ -3,7 +3,7 @@
 
 [![GitHub License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-A Batch Connect app designed for OSC Open OnDemand that launches RStudio desktop GUII usnig BioGrids.  
+A Batch Connect app designed for Open OnDemand that launches RStudio desktop GUI usnig BioGrids.  
 
 ## Prerequisites
 
