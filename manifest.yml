@@ -1,0 +1,7 @@
+---
+name: RStudio
+category: BioGrids Applications
+subcategory: IDE
+role: batch_connect
+description: |
+  This app will launch a BioGrids RStudio GUI on the O2 cluster.

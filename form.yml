@@ -1,0 +1,57 @@
+---
+cluster: "o2"
+form:
+  - title
+  - bc_account
+  - bc_queue
+  - bc_num_hours
+  - num_cores
+  - memory
+  - bc_vnc_resolution
+  - bc_email_on_started
+
+attributes:
+  bc_account:
+    label: "Account"
+    value: ""
+    required: true
+    help: "This is your O2 Slurm Account, use the command **sshare -U -u $USER** in O2 to see your slurm account"
+
+  bc_queue:
+    label: "Partition"
+    value: "priority"
+    required: true
+    help: "Select any of the O2 partitions, **except interactive**"
+
+  bc_num_hours:
+    label: "WallTime requested in hours"
+    value: "1"
+    required: true
+    help: "Enter the desired Wall Time compatible with the partition you selected, see https://wiki.rc.hms.harvard.edu/display/O2 for more information"
+
+  num_cores:
+    widget: "number_field"
+    label: "Number of cores"
+    value: 1
+    min: 1
+    max: 20
+
+  memory:
+    widget: "number_field"
+    label: "Total Memory in GB (for the job)"
+    min: 1
+    max: 150
+    value: 1
+    step: 1
+    required: true
+
+  bc_vnc_resolution:
+    required: true
+
+  title:
+    widget: select
+    label: "RStudio / R version"
+    help: "This defines the version of BioGrids R you want to load with RStudio."
+    options:
+      - [ "RStudio 1.3.1093 with R 4.0.2", "export RSTUDIO_X=1.3.1093; export R_X=4.0.2; rstudio" ]
+      - [ "RStudio 1.3.1093 with R 3.6.2", "export RSTUDIO_X=1.3.1093; export R_X=3.6.2; rstudio" ]

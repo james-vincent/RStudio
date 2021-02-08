@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+
+# Clean the environment
+module purge
+
+(
+  export SEND_256_COLORS_TO_REMOTE=1
+  export XDG_CONFIG_HOME="<%= session.staged_root.join("config") %>"
+  export XDG_DATA_HOME="<%= session.staged_root.join("share") %>"
+  export XDG_CACHE_HOME="$(mktemp -d)"
+  module restore
+  set -x
+  singularity exec -B /var:/var /n/app/singularity/containers/xfce-ood-desktop.sif xfwm4 --compositor=off --daemon --sm-client-disable
+  singularity exec -B /var:/var /n/app/singularity/containers/xfce-ood-desktop.sif xsetroot -solid "#D3D3D3"
+) &
+
+# Start BioGrids environment
+source /programs/biogrids.shrc
+# launch the app selected in widget
+unset XDG_RUNTIME_DIR 
+export SB_SITENAME=${SB_SITENAME}-OOD
+export RSTUDIO_CHROMIUM_ARGUMENTS="--disable-gpu"
+<%= context.title %>
+
+
+
+

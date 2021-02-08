@@ -1,0 +1,8 @@
+---
+batch_connect:
+  template: vnc
+script:
+  reservation_id: "ood_pilot"
+  native:
+    - "-c <%= num_cores %>"
+    - "--mem= <%= memory %>G"
